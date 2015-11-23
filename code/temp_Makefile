@@ -1,0 +1,22 @@
+OBJS = main.o SDL.o Input.o
+
+OBJS_NAME = dagame
+
+CXX = g++
+CFLAGS = -Wall -g -c
+LFLAGS = -lSDL2 
+
+all: $(OBJS)
+	$(CXX) $(OBJS) $(LFLAGS) -o $(OBJS_NAME)
+
+main.o: SDL.h
+	$(CXX) $(CFLAGS) main.cpp
+
+SDL.o: SDL.h
+	$(CXX) $(CFLAGS) SDL.cpp 
+
+Input.o: Input.h
+	$(CXX) $(CFLAGS) Input.cpp
+
+clean:
+	rm *.o dagame

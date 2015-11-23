@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/justin/game/code/Environment/Environment.cpp
+Environment.h
+/home/justin/game/code/Environment/Environment.h
+iostream
+-
+
+/home/justin/game/code/Environment/Environment.h
+vector
+-
+SDL2/SDL.h
+-
+../SDL.h
+/home/justin/game/code/SDL.h
+Platform.h
+/home/justin/game/code/Environment/Platform.h
+
+/home/justin/game/code/Environment/Platform.cpp
+Platform.h
+/home/justin/game/code/Environment/Platform.h
+../SDL.h
+/home/justin/game/code/SDL.h
+iostream
+-
+
+/home/justin/game/code/Environment/Platform.h
+../SDL.h
+/home/justin/game/code/SDL.h
+SDL2/SDL.h
+-
+
+/home/justin/game/code/SDL.h
+SDL2/SDL.h
+-
+

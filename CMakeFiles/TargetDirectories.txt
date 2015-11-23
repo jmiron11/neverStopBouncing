@@ -1,0 +1,4 @@
+/home/justin/game/code/CMakeFiles/dagame.dir
+/home/justin/game/code/Information/CMakeFiles/Information.dir
+/home/justin/game/code/Environment/CMakeFiles/Environment.dir
+/home/justin/game/code/Characters/CMakeFiles/Characters.dir

@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/justin/game/code/Information/Status.cpp
+Status.h
+/home/justin/game/code/Information/Status.h
+
+/home/justin/game/code/Information/Status.h
+../SDL.h
+/home/justin/game/code/SDL.h
+
+/home/justin/game/code/SDL.h
+SDL2/SDL.h
+-
+

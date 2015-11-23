@@ -1,0 +1,1 @@
+/usr/lib/hardening-wrapper/bin/c++      CMakeFiles/dagame.dir/main.cpp.o CMakeFiles/dagame.dir/SDL.cpp.o CMakeFiles/dagame.dir/Input.cpp.o CMakeFiles/dagame.dir/Timer.cpp.o  -o ../bin/dagame -rdynamic -lSDL2 -lpthread ../lib/libCharacters.a ../lib/libEnvironment.a ../lib/libInformation.a 
