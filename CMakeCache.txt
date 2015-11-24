@@ -202,6 +202,15 @@ SDL2_INCLUDE_DIR:PATH=/usr/include/SDL2
 //Where the SDL2 Library can be found
 SDL2_LIBRARY:STRING=/usr/lib64/libSDL2.so;-lpthread
 
+//Path to a file.
+SDL2_TTF_INCLUDE_DIR:PATH=/usr/local/include/SDL2
+
+//Where the SDL2_ttf Library can be found
+SDL2_TTF_LIBRARY:STRING=/usr/local/lib/libSDL2_ttf.so
+
+//The directory containing a CMake configuration file for SDL2_ttf.
+SDL2_ttf_DIR:PATH=SDL2_ttf_DIR-NOTFOUND
+
 //Value Computed by CMake
 dagame_BINARY_DIR:STATIC=/home/justin/game/code
 
@@ -352,7 +361,10 @@ CMAKE_USE_RELATIVE_PATHS-ADVANCED:INTERNAL=1
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding SDL2
 FIND_PACKAGE_MESSAGE_DETAILS_SDL2:INTERNAL=[/usr/lib64/libSDL2.so;-lpthread][/usr/include/SDL2][v()]
+//Details about finding SDL2_TTF
+FIND_PACKAGE_MESSAGE_DETAILS_SDL2_TTF:INTERNAL=[/usr/local/lib/libSDL2_ttf.so][/usr/local/include/SDL2][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
-SDL2_LIBRARY_TEMP:INTERNAL=/usr/lib64/libSDL2.so;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread
+SDL2_LIBRARY_TEMP:INTERNAL=/usr/lib64/libSDL2.so;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread
+SDL2_TTF_LIBRARY_TEMP:INTERNAL=/usr/local/lib/libSDL2_ttf.so
 

@@ -51,11 +51,17 @@ SDL.h
 /home/justin/game/code/SDL.h
 SDL2/SDL.h
 -
+SDL2/SDL_ttf.h
+-
 iostream
+-
+string
 -
 
 /home/justin/game/code/SDL.h
 SDL2/SDL.h
+-
+string
 -
 
 /home/justin/game/code/Timer.cpp

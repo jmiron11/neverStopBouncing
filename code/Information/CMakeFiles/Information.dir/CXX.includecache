@@ -9,6 +9,10 @@
 /home/justin/game/code/Information/Status.cpp
 Status.h
 /home/justin/game/code/Information/Status.h
+../SDL.h
+/home/justin/game/code/SDL.h
+string
+-
 
 /home/justin/game/code/Information/Status.h
 ../SDL.h
@@ -16,5 +20,7 @@ Status.h
 
 /home/justin/game/code/SDL.h
 SDL2/SDL.h
+-
+string
 -
 

@@ -2,6 +2,7 @@
 #define SDL_H_
 
 #include <SDL2/SDL.h>
+#include <string>
 
 class SDL
 {
@@ -18,13 +19,16 @@ public:
 
 	// Functions to handle loading Textures
 	SDL_Texture* loadTexture( const char* bitMapFileName );	
+	SDL_Texture* loadFontTexture( std::string, const char * fontFile, SDL_Color color, int fontSize); // Functions to handle loading font textures
 	void closeTexture(SDL_Texture * texture);
+
 
 	// Functions to handle loading BMPs
 	SDL_Surface * loadBitmap(const char * bitMapFileName);
 	void closeBitmap(SDL_Surface * bitmap);
 
 	void renderRect(SDL_Texture * texture, int x, int y, int width, int height);
+
 
 	int getWindowWidth();
 	int getWindowHeight();

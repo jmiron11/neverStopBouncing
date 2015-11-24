@@ -1,6 +1,10 @@
 #include "SDL.h"
+
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+
 #include <iostream>
+#include <string>
 
 const int BACKGROUND_RED = 0;
 const int BACKGROUND_GREEN = 0;
@@ -17,11 +21,19 @@ SDL::SDL(int windowWidth, int windowHeight, const char * title)
 		return;
 	}
 
+	if( TTF_Init() != 0 )
+	{
+		std::cerr << "SDL Failed to initialize TTF " << std::endl;
+		SDL_Quit();
+		return;
+	}
+
 	// Create the main game window
 	if((m_Window = SDL_CreateWindow( "First Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED
 		, windowWidth, windowHeight, SDL_WINDOW_SHOWN )) == NULL)
 	{
 		std::cerr << "SDL Failed to create window, SDL_ERROR: " << SDL_GetError() << std::endl;
+		SDL_Quit();
 		// Handle further
 		return;
 	}
@@ -30,7 +42,7 @@ SDL::SDL(int windowWidth, int windowHeight, const char * title)
 	if((m_Renderer = SDL_CreateRenderer( m_Window, AUTODETECT, 0 )) == NULL)
 	{
 		std::cerr << "SDL Failed to create renderer, SDL_ERROR: " << SDL_GetError() << std::endl;
-
+		SDL_Quit();
 		//Handle further
 		return;
 	}
@@ -81,6 +93,35 @@ SDL_Texture* SDL::loadTexture( const char * bitMapFileName )
 	closeBitmap(loadedSurface);
 
 	return newTexture;
+}
+
+SDL_Texture* SDL::loadFontTexture( std::string text, const char * fontFile, SDL_Color color, int fontSize)
+{
+	TTF_Font* font = NULL;
+	SDL_Surface* fontSurface = NULL;
+	SDL_Texture* fontTexture = NULL;
+
+	if((font = TTF_OpenFont(fontFile, fontSize)) == NULL)
+	{
+		std::cerr << "Failed to open font" << std::endl;
+		return NULL;
+	}
+
+	if((fontSurface = TTF_RenderText_Blended(font, text.c_str(), color)) == NULL)
+	{
+		std::cerr << "Failed to get surface from font" << std::endl;
+		return NULL;
+	}
+
+	if((fontTexture = SDL_CreateTextureFromSurface(m_Renderer, fontSurface)) == NULL)
+	{
+		std::cerr << "Failed to get texture from surface" << std::endl;
+		return NULL;
+	}
+
+	SDL_FreeSurface(fontSurface);
+	TTF_CloseFont(font);
+	return fontTexture;
 }
 
 void SDL::closeTexture(SDL_Texture * texture)

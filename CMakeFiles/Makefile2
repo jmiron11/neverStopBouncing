@@ -89,8 +89,8 @@ code/preinstall: code/Information/preinstall
 # Target rules for target code/CMakeFiles/dagame.dir
 
 # All Build rule for target.
-code/CMakeFiles/dagame.dir/all: code/Characters/CMakeFiles/Characters.dir/all
 code/CMakeFiles/dagame.dir/all: code/Environment/CMakeFiles/Environment.dir/all
+code/CMakeFiles/dagame.dir/all: code/Characters/CMakeFiles/Characters.dir/all
 code/CMakeFiles/dagame.dir/all: code/Information/CMakeFiles/Information.dir/all
 	$(MAKE) -f code/CMakeFiles/dagame.dir/build.make code/CMakeFiles/dagame.dir/depend
 	$(MAKE) -f code/CMakeFiles/dagame.dir/build.make code/CMakeFiles/dagame.dir/build

@@ -19,6 +19,10 @@ const int BOUNCE_WIDTH = 20;
 const int BOUNCE_HEIGHT = 20;
 const int BOUNCE_START_X = SCREEN_WIDTH/2;
 const int BOUNCE_START_Y = SCREEN_HEIGHT-GROUND_HEIGHT-BOUNCE_HEIGHT;
+const int STATUS_BAR_WIDTH = 100;
+const int STATUS_BAR_HEIGHT = 40;
+const int STATUS_BAR_X = SCREEN_WIDTH - STATUS_BAR_WIDTH;
+const int STATUS_BAR_Y = 0;
 
 bool g_running = true;
 
@@ -53,7 +57,7 @@ void initGame()
 	g_input = new Input();
 	g_timer = new Timer();
 	g_environment = new Environment(g_sdl);
-	g_statusbar = new Status(g_sdl);
+	g_statusbar = new Status(g_sdl, STATUS_BAR_X, STATUS_BAR_Y, STATUS_BAR_WIDTH, STATUS_BAR_HEIGHT );
 
 	createBounce();
 	initEnvironmentOne();
@@ -166,6 +170,6 @@ void handleKeyboard()
 
 void gameOverScreen()
 {
-	std::cout << "you ded" << std::endl;
+	g_statusbar->died();
 	initEnvironmentOne();
 }

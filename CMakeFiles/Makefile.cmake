@@ -12,6 +12,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.3.1/CMakeSystem.cmake"
   "CMakeLists.txt"
   "cmake/FindSDL2.cmake"
+  "cmake/FindSDL2_ttf.cmake"
   "code/CMakeLists.txt"
   "code/Characters/CMakeLists.txt"
   "code/Environment/CMakeLists.txt"

@@ -169,6 +169,7 @@ bin/dagame: code/CMakeFiles/dagame.dir/Input.cpp.o
 bin/dagame: code/CMakeFiles/dagame.dir/Timer.cpp.o
 bin/dagame: code/CMakeFiles/dagame.dir/build.make
 bin/dagame: /usr/lib64/libSDL2.so
+bin/dagame: /usr/local/lib/libSDL2_ttf.so
 bin/dagame: lib/libCharacters.a
 bin/dagame: lib/libEnvironment.a
 bin/dagame: lib/libInformation.a
