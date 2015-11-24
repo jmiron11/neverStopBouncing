@@ -1,9 +1,16 @@
 BUGS ---------------------------
 sliding seems to always be on when resting, should only be on for initial slide
-hitting corner seems to be crappy - switch to cross hitbox
+hitting corner seems to be less good - switch to cross hitbox
 
 
 TODO --------------------------
-Add background for first stage
+Add background for first stage 
+Finish first stage
+Create the intro scene and story
+Add chat bubbles
+
+
+DONE ------------------------
+Status bar
 Moving buffer
 Platforms need to be able to be moved

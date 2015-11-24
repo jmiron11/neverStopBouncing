@@ -11,6 +11,10 @@ Environment.h
 /home/justin/game/code/Environment/Environment.h
 iostream
 -
+SDL2/SDL.h
+-
+cstdint
+-
 
 /home/justin/game/code/Environment/Environment.h
 vector

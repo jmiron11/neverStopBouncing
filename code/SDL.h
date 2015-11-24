@@ -28,8 +28,9 @@ public:
 	void closeBitmap(SDL_Surface * bitmap);
 
 	void renderRect(SDL_Texture * texture, int x, int y, int width, int height);
+	void renderSection(SDL_Texture * texture, int src_x, int src_y, int src_width, int src_height, int dest_x, int dest_y, int dest_width, int dest_height);
 
-
+	// Functions to get the window size
 	int getWindowWidth();
 	int getWindowHeight();
 

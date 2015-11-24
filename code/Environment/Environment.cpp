@@ -1,11 +1,17 @@
 #include "Environment.h"
 
 #include <iostream>
+#include <SDL2/SDL.h>
+#include <cstdint>
 
-Environment::Environment(SDL* sdl): m_sdl(sdl)
+Environment::Environment(SDL* sdl, int viewWidth, int viewHeight): m_sdl(sdl)
 {
 	m_camera.m_x = 0;
 	m_camera.m_y = 0;
+	m_background = NULL;
+
+	m_camera.m_width = viewWidth;
+	m_camera.m_height = viewHeight;
 }
 
 
@@ -16,10 +22,14 @@ Environment::~Environment()
 
 void Environment::render()
 {
+	// render background
+	if(m_background != NULL){
+		m_sdl->renderSection( m_background, m_camera.m_x, m_camera.m_y, m_camera.m_width, m_camera.m_height, 0, 0, m_camera.m_width, m_camera.m_height );
+	}
+
 	for(int i = 0; i < platforms.size(); ++i)
 	{
-		/* render reach rectangle if it is within the area */
-
+		/* render each rectangle if it is within the area */
 		m_sdl->renderRect( platforms[i]->m_texture, 
 											 platforms[i]->m_x - m_camera.m_x, 
 											 platforms[i]->m_y - m_camera.m_y, 
@@ -50,6 +60,9 @@ void Environment::clear()
 		delete platforms[i];
 
 	platforms.clear();
+
+	if(m_background != NULL)
+		m_sdl->closeTexture(m_background);
 }
 
 void Environment::setDimension(int width, int height)
@@ -94,4 +107,9 @@ void Environment::update(float deltaTime)
 {
 	for(int i = 0; i < platforms.size(); ++i)
 		platforms[i]->update(deltaTime);
+}
+
+void Environment::setBackground(const char * bitmapFileName)
+{
+	m_background = m_sdl->loadTexture(bitmapFileName);
 }

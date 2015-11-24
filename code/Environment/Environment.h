@@ -10,7 +10,7 @@
 class Environment
 {
 public:
-	Environment(SDL* sdl);
+	Environment(SDL* sdl, int viewWidth, int viewHeight);
 	~Environment();
 
 	void render();
@@ -24,6 +24,7 @@ public:
 
 	void setDimension(int width, int height);
 	void setView(int x, int y);
+	void setBackground(const char * bitmapFileName);
 
 	/* Helper functions to get member values SHOULD SET TO CONST*/
 	int viewX();
@@ -45,6 +46,7 @@ private:
 
 
 	SDL* m_sdl;
+	SDL_Texture* m_background;
 	int m_width;
 	int m_height;
 	View m_camera; 

@@ -18,11 +18,14 @@ Status::~Status(){
 
 void Status::render()
 {
+	//Render the background of the status area
 	m_sdl->renderRect(m_backTexture, m_x, m_y, m_width, m_height);
 
+	//Render the texture for reporting number of deaths
 	SDL_Color white = { 0xFF, 0xFF, 0xFF, 0xFF };
 	SDL_Texture* fontTexture = m_sdl->loadFontTexture("Deaths: " + std::to_string(numDeaths) , fontPath, white, 30);
 	m_sdl->renderRect(fontTexture, m_x+PADDING, m_y+PADDING, m_width - 2*PADDING, m_height/2-1);
+	m_sdl->closeTexture(fontTexture);
 }
 
 void Status::died()

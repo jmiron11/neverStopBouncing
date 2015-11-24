@@ -16,6 +16,7 @@ private:
 
 	int numDeaths;
 
+	// Status area size and location
 	int m_x;
 	int m_y;
 	int m_width;
