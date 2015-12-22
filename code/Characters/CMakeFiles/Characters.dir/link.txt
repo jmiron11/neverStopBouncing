@@ -1,2 +1,2 @@
-/usr/bin/ar cq ../../lib/libCharacters.a  CMakeFiles/Characters.dir/BouncyBall.cpp.o CMakeFiles/Characters.dir/Character.cpp.o
+/usr/bin/ar qc ../../lib/libCharacters.a  CMakeFiles/Characters.dir/BouncyBall.cpp.o CMakeFiles/Characters.dir/Character.cpp.o
 /usr/bin/ranlib ../../lib/libCharacters.a

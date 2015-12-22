@@ -1,2 +1,2 @@
-/usr/bin/ar cq ../../lib/libInformation.a  CMakeFiles/Information.dir/Status.cpp.o
+/usr/bin/ar qc ../../lib/libInformation.a  CMakeFiles/Information.dir/Status.cpp.o
 /usr/bin/ranlib ../../lib/libInformation.a

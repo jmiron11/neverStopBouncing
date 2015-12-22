@@ -1,2 +1,2 @@
-/usr/bin/ar cq ../../lib/libEnvironment.a  CMakeFiles/Environment.dir/Environment.cpp.o CMakeFiles/Environment.dir/Platform.cpp.o
+/usr/bin/ar qc ../../lib/libEnvironment.a  CMakeFiles/Environment.dir/Environment.cpp.o CMakeFiles/Environment.dir/Platform.cpp.o CMakeFiles/Environment.dir/Textbox.cpp.o
 /usr/bin/ranlib ../../lib/libEnvironment.a

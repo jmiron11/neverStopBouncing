@@ -33,6 +33,7 @@ Timer * g_timer;
 Environment * g_environment;
 Status * g_statusbar;
 BouncyBall * maBoiBounce;
+int curr_envir = 1;
 
 void initGame();
 void createBounce();
@@ -71,6 +72,7 @@ void initEnvironmentOne()
 	const int bounceStartX = SCREEN_WIDTH/2;
 	const int bounceStartY = 400 - BOUNCE_HEIGHT;
 	g_environment->removeAllPlatforms();
+	g_environment->removeAllTextboxes();
 	g_environment->setBackground( ENVIR_ONE_BACKGROUND_PATH );
 	g_environment->setDimension(levelOneWidth, levelOneHeight);
 	g_environment->addPlatform( 0, 400, 500, SCREEN_HEIGHT-400, GROUND_BITMAP_PATH ); // floor level
@@ -89,6 +91,45 @@ void initEnvironmentOne()
 	g_environment->addPlatform( 1700, 350, 200, 10, GROUND_BITMAP_PATH );
 	g_environment->addPlatform( 1400, 250, 80, 80, GROUND_BITMAP_PATH );
 	g_environment->addPlatform( 1800, 250, 100, 50, GROUND_BITMAP_PATH );
+
+	g_environment->addTextbox("This is my house", 250, 250, 200, 60);
+	g_environment->addTextbox("It is a very nice house", 650, 100, 270, 60);
+
+	g_environment->setView(bounceStartX, SCREEN_HEIGHT/2);
+
+	maBoiBounce->setStartLocation(bounceStartX, bounceStartY);
+	maBoiBounce->reset();
+}
+
+void initEnvironmentTwo()
+{
+	const int levelTwoWidth = 2000;
+	const int levelTwoHeight = SCREEN_HEIGHT;
+	const int bounceStartX = SCREEN_WIDTH/2;
+	const int bounceStartY = 400 - BOUNCE_HEIGHT;
+	g_environment->removeAllPlatforms();
+	g_environment->removeAllTextboxes();
+	g_environment->setBackground( ENVIR_ONE_BACKGROUND_PATH );
+	g_environment->setDimension(levelTwoWidth, levelTwoHeight);
+	g_environment->addPlatform( 0, 400, 500, SCREEN_HEIGHT-400, GROUND_BITMAP_PATH ); // floor level
+
+	/* Pre pillars */
+	g_environment->addPlatform( 460, 260, 80, 10, GROUND_BITMAP_PATH, true, 0, 40, 0, 50);
+	g_environment->addPlatform( 550, 180, 80, 10, GROUND_BITMAP_PATH , true, 70, 0, 50, 0);
+
+	g_environment->addPlatform( 750, 180, 80, 20, GROUND_BITMAP_PATH );
+
+	/* Dem pillars */
+	g_environment->addPlatform( 900, 180, 15, SCREEN_HEIGHT-180, GROUND_BITMAP_PATH );
+	g_environment->addPlatform( 1000, 180, 15, SCREEN_HEIGHT-180, GROUND_BITMAP_PATH );
+	g_environment->addPlatform( 1100, 180, 15, SCREEN_HEIGHT-180, GROUND_BITMAP_PATH );
+
+	g_environment->addPlatform( 1700, 350, 200, 10, GROUND_BITMAP_PATH );
+	g_environment->addPlatform( 1400, 250, 80, 80, GROUND_BITMAP_PATH );
+	g_environment->addPlatform( 1800, 250, 100, 50, GROUND_BITMAP_PATH );
+
+	g_environment->addTextbox("This is not my house", 250, 250, 200, 60);
+	g_environment->addTextbox("It is not a very nice house", 650, 100, 270, 60);
 
 	g_environment->setView(bounceStartX, SCREEN_HEIGHT/2);
 
@@ -110,6 +151,7 @@ void cleanupGame()
 
 void eventLoop()
 {
+	int i = 0;
 	while(g_running)
 	{
 		g_input->getInput();
@@ -131,6 +173,11 @@ void eventLoop()
 		if(!maBoiBounce->isAlive())
 		{
 			gameOverScreen();
+		}
+
+		if(maBoiBounce->canLeaveArea())
+		{
+			initEnvironmentTwo();
 		}
 
 		// make some things appear on the screen cool cool cool.
@@ -169,9 +216,13 @@ void handleKeyboard()
 	}
 
 	if(keysPressed[SDL_SCANCODE_LEFT] && !keysPressed[SDL_SCANCODE_RIGHT])
+	{
 		maBoiBounce->moveLeft();
+	}
 	else if (!keysPressed[SDL_SCANCODE_LEFT] && keysPressed[SDL_SCANCODE_RIGHT])
+	{
 		maBoiBounce->moveRight();
+	}
 	else
 		maBoiBounce->stopMoving();
 }

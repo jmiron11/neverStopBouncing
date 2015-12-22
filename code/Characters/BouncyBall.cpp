@@ -15,7 +15,7 @@ bool sliding = true;
 bool canSlide = false;
 
 BouncyBall::BouncyBall(SDL* sdl, Environment* envir, int x, int y, int width, int height, const char* bitMapFileName)
-	:Character(sdl, envir, x, y, width, height, bitMapFileName), alive(true), jumping(false), sliding(false), canSlide(false) { }
+	:Character(sdl, envir, x, y, width, height, bitMapFileName), alive(true), jumping(false), sliding(false), canSlide(false), canLeave(false) { }
 
 BouncyBall::~BouncyBall()
 {
@@ -129,8 +129,9 @@ void BouncyBall::handleCollision(CollisionType c, Platform * hitPlatform)
 			break;
 
 		case BORDER_RIGHT:
-			m_velX = -m_velX; //Bounce off border and keep x within range
-			m_x = m_envir->levelWidth() - m_width;
+			// m_velX = -m_velX; //Bounce off border and keep x within range
+			// m_x = m_envir->levelWidth() - m_width;
+			canLeave = true;
 			break;
 
 		case BORDER_UP:
@@ -239,6 +240,12 @@ bool BouncyBall::isAlive()
 void BouncyBall::reset()
 {
 	alive = true;
+	canLeave = false;
 	m_velX = 0;
 	m_velY = 0;
+}
+
+bool BouncyBall::canLeaveArea()
+{
+	return canLeave;
 }

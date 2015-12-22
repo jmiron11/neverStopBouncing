@@ -48,6 +48,8 @@ public:
 	int centerX();
 	int centerY();
 
+	bool canLeaveArea();
+
 private:
 	CollisionType platformCollision(Platform *& hitPlatform);
 	void handleCollision(CollisionType c, Platform * hitPlatform);
@@ -57,6 +59,7 @@ private:
 	bool jumping;
 	bool sliding;
 	bool canSlide;
+	bool canLeave;
 };
 
 

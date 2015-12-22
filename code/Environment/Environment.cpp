@@ -1,5 +1,7 @@
 #include "Environment.h"
 
+#include "Textbox.h"
+
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <cstdint>
@@ -36,6 +38,12 @@ void Environment::render()
 											 platforms[i]->m_width, 
 											 platforms[i]->m_height );
 	}
+
+	for(int i = 0; i < textboxes.size(); ++i)
+	{
+		/* render each rectangle if it is within the area */
+		textboxes[i]->render(m_camera.m_x, m_camera.m_y);
+	}
 }	
 
 void Environment::addPlatform(int x, int y, int width, int height, const char* bitmapFileName, 
@@ -51,15 +59,19 @@ void Environment::addPlatform(int x, int y, int width, int height, const char* b
 
 void Environment::removeAllPlatforms()
 {
-	clear();
+	for(int i = 0; i < platforms.size(); ++i)
+	{
+		delete platforms[i];
+		platforms[i] = NULL;
+	}
+
+	platforms.clear();
 }
 
 void Environment::clear()
 {
-	for(int i = 0; i < platforms.size(); ++i)
-		delete platforms[i];
-
-	platforms.clear();
+	removeAllPlatforms();
+	removeAllTextboxes();
 
 	if(m_background != NULL)
 		m_sdl->closeTexture(m_background);
@@ -112,4 +124,18 @@ void Environment::update(float deltaTime)
 void Environment::setBackground(const char * bitmapFileName)
 {
 	m_background = m_sdl->loadTexture(bitmapFileName);
+}
+
+void Environment::removeAllTextboxes()
+{
+	for(int i = 0; i < textboxes.size(); ++i)
+		delete textboxes[i];
+
+	textboxes.clear();
+}
+
+void Environment::addTextbox( std::string text , int x, int y, int width, int height )
+{
+	Textbox* newTextbox = new Textbox(m_sdl, text, "../bitmaps/white.bmp", x, y, width, height);
+	textboxes.push_back(newTextbox);
 }

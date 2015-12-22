@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Environment.dir/Environment.cpp.o"
   "CMakeFiles/Environment.dir/Platform.cpp.o"
+  "CMakeFiles/Environment.dir/Textbox.cpp.o"
   "../../lib/libEnvironment.pdb"
   "../../lib/libEnvironment.a"
 )

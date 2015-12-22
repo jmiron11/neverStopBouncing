@@ -35,18 +35,30 @@ SDL2/SDL.h
 /home/justin/game/code/Environment/Environment.h
 
 /home/justin/game/code/Environment/Environment.h
-vector
--
-SDL2/SDL.h
--
 ../SDL.h
 /home/justin/game/code/SDL.h
 Platform.h
 /home/justin/game/code/Environment/Platform.h
+Textbox.h
+/home/justin/game/code/Environment/Textbox.h
+vector
+-
+SDL2/SDL.h
+-
+string
+-
 
 /home/justin/game/code/Environment/Platform.h
 ../SDL.h
 /home/justin/game/code/SDL.h
+SDL2/SDL.h
+-
+
+/home/justin/game/code/Environment/Textbox.h
+../SDL.h
+/home/justin/game/code/SDL.h
+string
+-
 SDL2/SDL.h
 -
 

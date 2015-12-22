@@ -23,3 +23,6 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/justin/game/code/Environment/CMakeFiles/Environment.dir/DependInfo.cmake"
   "/home/justin/game/code/Information/CMakeFiles/Information.dir/DependInfo.cmake"
   )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

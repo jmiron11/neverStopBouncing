@@ -1,11 +1,13 @@
 #ifndef ENVIRONMENT_H_
 #define ENVIRONMENT_H_
 
-#include <vector>
-#include <SDL2/SDL.h>
-
 #include "../SDL.h"
 #include "Platform.h"
+#include "Textbox.h"
+
+#include <vector>
+#include <SDL2/SDL.h>
+#include <string>
 
 class Environment
 {
@@ -18,6 +20,10 @@ public:
 	void removeAllPlatforms();
 	void addPlatform(int x, int y, int width, int height, const char* bitmapFileName, 
 									 bool animated = false, int xRange = 0, int yRange = 0, int xVel = 0, int yVel = 0);
+
+
+	void removeAllTextboxes();
+	void addTextbox( std::string text , int x, int y, int width, int height );
 
 
 	void update(float deltaTime);
@@ -33,6 +39,7 @@ public:
 	int levelHeight();
 
 	std::vector<Platform*> platforms;
+	std::vector<Textbox*> textboxes;
 
 private:
 	

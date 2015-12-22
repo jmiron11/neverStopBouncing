@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/justin/game/code/Environment/Environment.cpp" "/home/justin/game/code/Environment/CMakeFiles/Environment.dir/Environment.cpp.o"
   "/home/justin/game/code/Environment/Platform.cpp" "/home/justin/game/code/Environment/CMakeFiles/Environment.dir/Platform.cpp.o"
+  "/home/justin/game/code/Environment/Textbox.cpp" "/home/justin/game/code/Environment/CMakeFiles/Environment.dir/Textbox.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,3 +19,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")
